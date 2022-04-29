@@ -7,10 +7,12 @@ import androidx.compose.material.CircularProgressIndicator
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.MutableState
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.remember
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.geometry.Offset
-import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
 import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.SpanStyle
@@ -21,32 +23,45 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.javidev.trivial.model.QuestionItem
 import com.javidev.trivial.presentation.screens.QuestionViewModel
 import com.javidev.trivial.util.Colors
+import kotlin.Exception
 
 @Composable
 fun Question(viewModel: QuestionViewModel) {
 
     var questions = viewModel.data.value.data?.toMutableList()
+    var indexState = remember { mutableStateOf(0)}
 
     if (viewModel.data.value.loading == true) {
         Log.d("Loading", "Questions is Loading:....")
-    } else {
-        QuestionDisplay()
-
-        Log.d("Loadin", "Questions is stopped")
-        Log.d("Loading", "Size: ${questions?.size}")
-        questions?.forEach {
-            Log.d("Loading", "Question: ${it.question}")
+        Box(modifier = Modifier.fillMaxSize(), contentAlignment = Alignment.Center){
+            Surface(modifier = Modifier.size(70.dp)) {
+                CircularProgressIndicator()
+            }
         }
 
+    } else {
+
+        val question = try {
+            questions?.get(indexState.value)!!
+        }catch (ex: Exception){
+            null
+        }
+
+        if (question != null) QuestionDisplay(question = question, questionIndex =  indexState, viewModel = viewModel)
 
     }
 }
 
-@Preview
 @Composable
-fun QuestionDisplay() {
+fun QuestionDisplay(
+    question: QuestionItem,
+    questionIndex: MutableState<Int>,
+    viewModel: QuestionViewModel,
+    onNextClicked: (Int) -> Unit = {}
+) {
 
     // esto es lo que le da la discontinuidad a la linea
     val pathEffect = PathEffect.dashPathEffect(floatArrayOf(10f, 10f), 0f)
@@ -64,6 +79,18 @@ fun QuestionDisplay() {
 
             QuestionTracker()
             DrawDottedLine(pathEffect = pathEffect)
+
+            Column {
+                Text(text = question.question,
+                    modifier = Modifier
+                        .padding(6.dp)
+                        .align(alignment = Alignment.Start)
+                        .fillMaxHeight(0.3f),
+                    fontSize = 17.sp,
+                    color = Colors.mOffWhite,
+                    fontWeight = FontWeight.Bold,
+                    lineHeight = 22.sp)
+            }
 
         }
 
