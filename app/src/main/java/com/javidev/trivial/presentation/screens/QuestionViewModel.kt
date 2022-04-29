@@ -34,4 +34,7 @@ class QuestionViewModel
             }
         }
     }
+
+
+    fun getSizeQuestion(): Int = data.value.data?.toMutableList()?.size!!
 }
