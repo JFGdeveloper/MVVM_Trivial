@@ -5,8 +5,8 @@ import androidx.compose.runtime.mutableStateOf
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.javidev.trivial.data.Data0rException
-import com.javidev.trivial.model.QuestionItem
-import com.javidev.trivial.repository.QuestionRepository
+import com.javidev.trivial.data.model.QuestionItem
+import com.javidev.trivial.data.repository.QuestionRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import java.lang.Exception

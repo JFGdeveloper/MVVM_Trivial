@@ -1,3 +1,3 @@
-package com.javidev.trivial.model
+package com.javidev.trivial.data.model
 
 class Question : ArrayList<QuestionItem>()

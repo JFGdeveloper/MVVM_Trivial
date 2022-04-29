@@ -1,7 +1,7 @@
 package com.javidev.trivial.di
 
-import com.javidev.trivial.network.QuestionApi
-import com.javidev.trivial.repository.QuestionRepository
+import com.javidev.trivial.data.network.QuestionApi
+import com.javidev.trivial.data.repository.QuestionRepository
 import com.javidev.trivial.util.Constant
 import dagger.Module
 import dagger.Provides

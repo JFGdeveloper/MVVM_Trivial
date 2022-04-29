@@ -1,4 +1,4 @@
-package com.javidev.trivial.component
+package com.javidev.trivial.presentation.component
 
 import android.util.Log
 import androidx.compose.foundation.Canvas
@@ -16,7 +16,6 @@ import androidx.compose.ui.geometry.Offset
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.PathEffect
-import androidx.compose.ui.graphics.RectangleShape
 import androidx.compose.ui.text.ParagraphStyle
 import androidx.compose.ui.text.SpanStyle
 import androidx.compose.ui.text.buildAnnotatedString
@@ -27,7 +26,7 @@ import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.javidev.trivial.model.QuestionItem
+import com.javidev.trivial.data.model.QuestionItem
 import com.javidev.trivial.presentation.screens.QuestionViewModel
 import com.javidev.trivial.util.Colors
 import kotlin.Exception

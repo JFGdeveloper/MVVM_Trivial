@@ -1,4 +1,4 @@
-package com.javidev.trivial.model
+package com.javidev.trivial.data.model
 
 data class QuestionItem(
     val answer: String,

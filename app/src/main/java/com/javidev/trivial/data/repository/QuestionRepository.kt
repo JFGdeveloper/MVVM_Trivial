@@ -1,9 +1,9 @@
-package com.javidev.trivial.repository
+package com.javidev.trivial.data.repository
 
 import android.util.Log
 import com.javidev.trivial.data.Data0rException
-import com.javidev.trivial.model.QuestionItem
-import com.javidev.trivial.network.QuestionApi
+import com.javidev.trivial.data.model.QuestionItem
+import com.javidev.trivial.data.network.QuestionApi
 import java.lang.Exception
 import javax.inject.Inject
 

@@ -1,4 +1,4 @@
-package com.javidev.trivial
+package com.javidev.trivial.presentation
 
 import android.os.Bundle
 import android.util.Log

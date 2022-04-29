@@ -1,6 +1,6 @@
-package com.javidev.trivial.network
+package com.javidev.trivial.data.network
 
-import com.javidev.trivial.model.Question
+import com.javidev.trivial.data.model.Question
 import retrofit2.http.GET
 
 interface QuestionApi {

@@ -1,9 +1,8 @@
-package com.javidev.trivial
+package com.javidev.trivial.util
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp
 
-// TODO VERIFICA EL @ DE HILT
 
 @HiltAndroidApp
 class TrivialApplication: Application() {
